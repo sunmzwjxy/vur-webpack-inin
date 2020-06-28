@@ -27,7 +27,7 @@ module.exports = {
             { test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader'] },
             { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
             { test: /\.(woff|woff2|eot|ttf|otf)$/, use: ['file-loader'] },
-            { test: /\.(png|jpg|gif)$/, use: ['url-loader'] },
+            { test: /\.(png|jpg|gif|bmp|jpeg)$/, use: ['url-loader?esModule: false'] },
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
