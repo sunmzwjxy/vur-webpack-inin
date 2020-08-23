@@ -8,6 +8,9 @@ import './plugins/Mint-UI.js'
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 
+axios.defaults.baseURL = 'http://localhost:3000/';
+// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.prototype.$axios = axios
 
 var vm = new Vue({

@@ -1,7 +1,16 @@
 <template>
     <div class="app-container">
-        <mt-header fixed title="固定在顶部"></mt-header>
-        <router-view></router-view>
+        <mt-header fixed title="固定在顶部">
+            <router-link to="/" slot="left">
+                <mt-button icon="back">返回</mt-button>
+            </router-link>
+        </mt-header>
+
+        <!-- 添加动画 -->
+        <transition>
+            <router-view></router-view>
+        </transition>
+
         <nav class="mui-bar mui-bar-tab">
             <router-link class="mui-tab-item" to="/home">
                 <span class="mui-icon mui-icon-home"></span>
@@ -28,17 +37,32 @@
 <script>
 export default {
     data() {
-        return {
-            selected: true
-        };
+        return {};
     },
-    components: {
-    }
+    components: {}
 };
 </script>
 
 <style lang="less" scoped>
 .app-container {
     padding-top: 40px;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+}
+
+.v-enter {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+    position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: all 0.5s ease;
 }
 </style>
